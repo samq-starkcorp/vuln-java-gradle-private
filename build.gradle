@@ -1,13 +1,11 @@
+import javax.tools.JavaCompiler
+
 group 'com.clouddefense'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
 
 compileJava {
     options.fork = true
@@ -24,6 +22,19 @@ dependencies {
     implementation group: 'org.apache.kafka', name: 'kafka_2.11', version: '0.9.0.1'
     implementation group: 'net.bull.javamelody', name: 'javamelody-core', version: '1.59.0'
     implementation group: 'com.orientechnologies', name: 'orientdb-server', version: '2.1.9'
+    implementation group: 'wss', name: 'vulnpackage', version: '1.0'
+}
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://ec2-3-145-214-194.us-east-2.compute.amazonaws.com:8082/artifactory/gradle-dev'
+            credentials {
+                username System.getenv("ARTIFACTORY_USERNAME")
+                username System.getenv("ARTIFACTORY_PASSWORD")
+            }
+        }
+    }
 }
 
 defaultTasks 'build'
