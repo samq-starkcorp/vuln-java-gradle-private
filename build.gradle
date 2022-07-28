@@ -29,10 +29,10 @@ allprojects {
         mavenCentral()
         maven {
             url 'http://ec2-3-145-214-194.us-east-2.compute.amazonaws.com:8082/artifactory/gradle-dev'
-            credentials {
-                username System.getenv("ARTIFACTORY_USERNAME")
-                password System.getenv("ARTIFACTORY_PASSWORD")
-            }
+            //credentials {
+            //    username System.getenv("ARTIFACTORY_USERNAME")
+            //    password System.getenv("ARTIFACTORY_PASSWORD")
+            //}
         }
     }
 }
