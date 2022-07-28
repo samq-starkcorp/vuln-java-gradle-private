@@ -31,7 +31,7 @@ allprojects {
             url 'http://ec2-3-145-214-194.us-east-2.compute.amazonaws.com:8082/artifactory/gradle-dev'
             credentials {
                 username System.getenv("ARTIFACTORY_USERNAME")
-                username System.getenv("ARTIFACTORY_PASSWORD")
+                password System.getenv("ARTIFACTORY_PASSWORD")
             }
         }
     }
